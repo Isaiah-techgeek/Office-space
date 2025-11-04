@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Office Booking</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="split-screen">
+        <aside class="pane pane-left" aria-labelledby="booking-title">
+            <section class="booking-section">
+                <h1 id="booking-title">Book Your Workspace</h1>
+
+                <div class="booking-form" role="form" aria-labelledby="booking-title">
+                    <label class="visually-hidden" for="bookingDate">Booking date</label>
+                    <input type="date" id="bookingDate" aria-label="Booking date">
+
+                    <!-- kept select synced with center options -->
+                    <select id="officeSpace" aria-label="Office space type" hidden>
+                        <option value="">Select Space Type</option>
+                        <option value="desk">Single Desk</option>
+                        <option value="office">Private Office</option>
+                        <option value="meeting">Meeting Room</option>
+                    </select>
+
+                    <label class="visually-hidden" for="startTime">Start time</label>
+                    <input type="time" id="startTime" aria-label="Start time">
+
+                    <label class="visually-hidden" for="endTime">End time</label>
+                    <input type="time" id="endTime" aria-label="End time">
+
+                    <button id="bookNow" type="button">Book Now</button>
+                </div>
+            </section>
+        </aside>
+
+        <main class="pane pane-center" role="region" aria-label="Space types">
+            <!-- center column: options list with icons (listbox style) -->
+            <div class="space-options" role="listbox" aria-label="Space types" tabindex="0">
+                <button class="option-card" data-type="desk" role="option" aria-pressed="false">
+                    <img class="option-icon" src="Single desk 1.avif" alt="" aria-hidden="true">
+                    <span class="option-label">Single Desk</span>
+                </button>
+
+                <button class="option-card" data-type="office" role="option" aria-pressed="false">
+                    <img class="option-icon" src="Private office 1.jpg" alt="" aria-hidden="true">
+                    <span class="option-label">Private Office</span>
+                </button>
+
+                <button class="option-card" data-type="meeting" role="option" aria-pressed="false">
+                    <img class="option-icon" src="Meeting room 1.jpg" alt="" aria-hidden="true">
+                    <span class="option-label">Meeting Room</span>
+                </button>
+            </div>
+        </main>
+  <section class="pane pane-right preview-section" aria-live="polite" aria-label="Space preview">
+      <div class="space-preview">
+        <div class="model-3d" id="spaceModel">
+          <img id="spaceImage" src="Meeting room 2.webp" alt="Space preview">
+        </div>
+
+        <div class="space-details" id="spaceDetails">
+          <h2>Space Preview</h2>
+          <p id="spaceDescription">Select a space to view details</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<body class="has-bg">
+  <!-- Background Layer -->
+  <div class="bg-image" aria-hidden="true"></div>
+
+    
+</body>
+ 
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="mailto:contact@office.com" class="social-icon" title="Email">✉️</a>
+                <a href="https://instagram.com/officebooking" class="social-icon" title="Instagram" target="_blank" rel="noopener">📷</a>
+            </div>
+            <p>&copy; 2025 Office Booking. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+  

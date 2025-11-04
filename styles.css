@@ -1,0 +1,105 @@
+
+:root{
+  --gap: 24px;
+  --card: #fff;
+  --accent: #0b74de;
+  --muted: #6b7280;
+  --radius: 12px;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg);color:#111}
+
+.split-screen{
+  display:grid;
+  grid-template-columns: 320px 1fr 420px;
+  gap:var(--gap);
+  padding:32px;
+  align-items:start;
+  min-height: calc(100vh - 80px);
+}
+
+/* Panes */
+.pane{
+  background:transparent;
+  border-radius:12px;
+  padding:16px;
+}
+
+/* Left booking pane */
+.pane-left .booking-section{
+  background:var(--card);
+  padding:20px;
+  border-radius:var(--radius);
+  box-shadow:0 6px 18px rgba(16,24,40,0.06);
+}
+.booking-form{display:flex;flex-direction:column;gap:12px}
+.booking-form input,
+.booking-form select,
+.booking-form button{
+  padding:10px 12px;border-radius:8px;border:1px solid #e6e9ef;background:white;font-size:15px;
+}
+.booking-form button{
+  background:var(--accent);color:#fff;border:none;cursor:pointer;
+}
+.booking-form button:focus,
+.option-card:focus{outline:3px solid rgba(11,116,222,0.18);outline-offset:2px}
+
+/* Center options */
+.pane-center{
+  display:flex;align-items:center;justify-content:center;
+}
+.space-options{
+  width:100%;
+  display:flex;flex-direction:column;gap:12px;
+  max-width:540px;
+}
+.option-card{
+  display:flex;align-items:center;gap:12px;
+  background:var(--card);padding:12px;border-radius:10px;border:1px solid transparent;
+  cursor:pointer;text-align:left;
+}
+.option-card .option-icon{width:68px;height:56px;object-fit:cover;border-radius:8px}
+.option-card[aria-pressed="true"]{
+  border-color:var(--accent);
+  box-shadow:0 6px 18px rgba(11,116,222,0.08);
+}
+.option-label{font-weight:600}
+
+/* Right preview pane */
+.preview-section .space-preview{
+  background:var(--card);padding:16px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(16,24,40,0.06);
+  display:flex;flex-direction:column;gap:12px;align-items:center;
+}
+.model-3d{width:100%;max-width:360px;height:auto;display:flex;align-items:center;justify-content:center}
+.model-3d img{width:100%;height:auto;border-radius:8px;object-fit:cover}
+.space-details{width:100%;text-align:center;color:var(--muted)}
+
+/* Footer spacing */
+.footer{padding:20px 32px;background:transparent}
+.footer-content{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px}
+
+/* Utilities */
+.visually-hidden{position:absolute !important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+
+/* Responsive: stack on smaller screens */
+@media (max-width:980px){
+  .split-screen{grid-template-columns:1fr; padding:20px}
+  .pane{padding:12px}
+  .pane-center{order:2}
+  .pane-right{order:3}
+  .pane-left{order:1}
+}
+.bg-image {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url('Background\ 4.avif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.7); /* optional: darkens image for readability */
+}
+
+
